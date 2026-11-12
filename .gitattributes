@@ -1,0 +1,8 @@
+# Text is stored with LF so content hashes match on every machine, whatever core.autocrlf says.
+* text=auto eol=lf
+*.png binary
+*.svg text eol=lf
+
+# Kept in the repository, left out of source archives.
+/versions export-ignore
+/.github export-ignore

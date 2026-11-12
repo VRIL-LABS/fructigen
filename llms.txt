@@ -1,0 +1,33 @@
+# Fructigen
+
+> A Python library, standard library only, that plans how parallel subagents share prompt context.
+> Given one fan-out, it decides which shared segments to send in a compact encoded form, where to
+> place provider cache breakpoints, and in what order to release the calls, then checks the
+> provider's reported cache counters against its prediction. Alpha: no saving it predicts has been
+> measured on a real provider.
+
+Import name `fructigen`, distribution `vril-fructigen`, Python 3.11+. Licensed under the VRIL LABS
+Open Source License v1.0. Part of the VRIL LABS Parallel Subtask Agent Workflow.
+
+## Start here
+
+- [README](README.md): what it does, usage, the v0-alpha baseline it has to beat
+- [AGENTS.md](AGENTS.md): rules for coding agents working in this repository
+- [CONSTRAINTS.md](CONSTRAINTS.md): the quality bar and the command behind each rule
+- [CONTRIBUTING.md](CONTRIBUTING.md): setup and checks
+
+## Modules
+
+- [src/fructigen/plan.py](src/fructigen/plan.py): the prefix-plan compiler, `compile_plan`
+- [src/fructigen/provider.py](src/fructigen/provider.py): provider descriptors and the cache model
+- [src/fructigen/segment.py](src/fructigen/segment.py): segments, rendering, scope digest, hash path
+- [src/fructigen/attest.py](src/fructigen/attest.py): pre-call path check, post-call realisation
+- [src/fructigen/render.py](src/fructigen/render.py): message content with cache breakpoints
+- [src/fructigen/encode.py](src/fructigen/encode.py): cache-safe zone-factoring encoder
+- [src/fructigen/graph.py](src/fructigen/graph.py): validated task graph
+
+## Optional
+
+- [CHANGELOG.md](CHANGELOG.md)
+- [SECURITY.md](SECURITY.md)
+- [versions/v0-alpha/README.md](versions/v0-alpha/README.md): the modules as they stood before the move

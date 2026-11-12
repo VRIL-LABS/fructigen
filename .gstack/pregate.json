@@ -1,0 +1,22 @@
+{
+  "$schema": "https://github.com/garrytan/gstack/docs/pregate.md#pregate-v1",
+  "runner": "python -m pytest {files}",
+  "dependencies": {
+    "src/fructigen/__init__.py": ["tests/test_boundaries.py"],
+    "src/fructigen/attest.py": ["tests/test_identity_render_attest.py", "tests/test_boundaries.py"],
+    "src/fructigen/encode.py": ["tests/test_encode.py", "tests/test_boundaries.py"],
+    "src/fructigen/graph.py": ["tests/test_graph.py", "tests/test_boundaries.py"],
+    "src/fructigen/plan.py": ["tests/test_plan.py", "tests/test_boundaries.py"],
+    "src/fructigen/provider.py": ["tests/test_provider.py", "tests/test_plan.py", "tests/test_identity_render_attest.py", "tests/test_boundaries.py"],
+    "src/fructigen/render.py": ["tests/test_identity_render_attest.py", "tests/test_boundaries.py"],
+    "src/fructigen/segment.py": ["tests/test_segment_render.py", "tests/test_identity_render_attest.py", "tests/test_boundaries.py"],
+    "pyproject.toml": ["tests"],
+    "versions/v0-alpha/encode.py": [],
+    "versions/v0-alpha/graph.py": [],
+    "versions/v0-alpha/prompt.py": [],
+    "scripts/check.sh": [],
+    "scripts/floor-guard.mjs": [],
+    ".github/workflows/checks.yml": [],
+    "llms.txt": []
+  }
+}

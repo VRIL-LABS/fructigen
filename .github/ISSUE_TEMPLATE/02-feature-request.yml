@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest a capability, encoder, or provider descriptor
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What can you not do today, and in what kind of fan-out?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Provider documentation, a measurement, or a paper. Say which it is; a documented figure and a measured one are not the same evidence.
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Fit with the project rules
+      options:
+        - label: It can be built with the Python standard library only, or I explain why not
+        - label: It does not need a model call inside the planner

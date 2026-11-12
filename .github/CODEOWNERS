@@ -1,0 +1,6 @@
+# Every path is reviewed by the maintainer.
+* @VrilLabs
+
+# The quality bar changes only with a maintainer's review.
+/CONSTRAINTS.md @VrilLabs
+/scripts/floor-guard.mjs @VrilLabs

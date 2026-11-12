@@ -1,0 +1,53 @@
+name: Prediction mismatch
+description: A plan predicted one cache read and the provider reported another
+title: "[Mismatch]: "
+labels: ["measurement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These reports are how the cache model gets corrected. Include provider counters only:
+        never a key, and never prompt content you are not allowed to share.
+  - type: input
+    id: provider
+    attributes:
+      label: Provider, model and access path
+      placeholder: "Anthropic Messages API, claude-haiku-5-5, direct"
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: The fan-out
+      description: The `Call`/`Part` list (token counts, not text), the provider preset, and the strategy.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: counters
+    attributes:
+      label: Predicted and reported, per call
+      description: For each call, the planned cache read and write, and what the provider reported.
+      placeholder: |
+        call      planned_read  reported_read  planned_write  reported_write
+        sibling-1 800           0              0              0
+    validations:
+      required: true
+  - type: dropdown
+    id: miss
+    attributes:
+      label: What attest.classify returned, if you ran it
+      options:
+        - none
+        - unreported
+        - scope-changed
+        - below-floor
+        - race
+        - ttl-expired
+        - unknown
+        - did not run it
+  - type: textarea
+    id: timing
+    attributes:
+      label: Timing
+      description: When each call was sent, and whether siblings waited for the first response.

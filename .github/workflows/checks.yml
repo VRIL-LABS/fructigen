@@ -1,0 +1,48 @@
+# The four checks CONSTRAINTS.md names, on every push and pull request. CONSTRAINTS.md is the
+# canonical list: if this file and it disagree, the file wins and this workflow is the bug.
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # the floor guard diffs against origin/main
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+
+      - name: Lint and security rules
+        run: python -m ruff check src tests
+
+      - name: Types
+        run: python -m mypy
+
+      - name: Floor guard
+        run: node scripts/floor-guard.mjs --base origin/main
+
+      - name: Tests and coverage ratchet
+        run: python -m pytest --cov

@@ -3,8 +3,9 @@
 > A Python library, standard library only, that plans how parallel subagents share prompt context.
 > Given one fan-out, it decides which shared segments to send in a compact encoded form, where to
 > place provider cache breakpoints, and in what order to release the calls, then checks the
-> provider's reported cache counters against its prediction. Alpha: no saving it predicts has been
-> measured on a real provider.
+> provider's reported cache counters against its prediction. Alpha: no cache saving it predicts has been
+> measured on a real provider. The `encode` module alone has been measured in a real fan-out
+> (2026-11-12: cost −16.5%, context −32.1%, on an easy world where quality sat at a ceiling).
 
 Import name `fructigen`, distribution `vril-fructigen`, Python 3.11+. Licensed under the VRIL LABS
 Open Source License v1.0. Part of the VRIL LABS Parallel Subtask Agent Workflow.

@@ -17,6 +17,9 @@ All notable changes to this project are recorded here. The format follows
 - `attest`: hash-path check before a call; realisation and miss classification after it.
 - `CONSTRAINTS.md`, `scripts/floor-guard.mjs` and strict lint, type and coverage checks.
 - README header, v0-alpha baseline figures, and the whitepaper series.
+- README benchmark figures for the first Fructigen measurement (2026-11-12, `encode` in a real
+  fan-out: cost −16.5% ± 3.2, context −32.1% ± 2.2, quality at a ceiling). Older figure sets are
+  collapsed and dated.
 
 ### Changed
 

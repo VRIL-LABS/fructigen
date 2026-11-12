@@ -167,3 +167,9 @@ This project follows the [Contributor Covenant](CODE_OF_CONDUCT.md).
 ## Licence
 
 VRIL LABS Open Source License v1.0. See [`LICENSE`](LICENSE).
+
+---
+
+<p align="center">
+  <sub>Built by <strong>VRIL-LABS</strong> · Ancient Knowledge · Future Technology</sub>
+</p>
